@@ -2,9 +2,9 @@
 // Changing nums to lexicographically next greater permuttation
 // Only function snippet
 
-void next_permutation(vector<int> & nums){
+bool next_permutation(vector<int> & nums){
         int n = nums.size();
-        if(n==0 || n==1) return;
+        if(n==0 || n==1) return false;
         // next_permutation =>
         int i=n-1;
         for(i=n-1;i>0;i--){
@@ -15,5 +15,7 @@ void next_permutation(vector<int> & nums){
         if(i!=0){
             auto it = upper_bound(nums.begin()+i,nums.end(),nums[i-1]);
             swap(nums[i-1],*it);
+            return true;
         }
+        return false;
 }
